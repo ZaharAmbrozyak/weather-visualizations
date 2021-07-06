@@ -1,9 +1,10 @@
 import csv
 from datetime import date, datetime
 import matplotlib.pyplot as plt
+from matplotlib.transforms import Bbox
 
 
-filename = 'data/sitka_weather_07-2018_simple.csv'
+filename = 'data/sitka_weather_2018_simple.csv'
 with open(filename) as f:
      reader = csv.reader(f)
 
@@ -26,10 +27,12 @@ fig, ax = plt.subplots()
 ax.plot(dates, highs, c='red')
 
 # Відформатувати графік.
-plt.title("Daily high temperatures, July 2018", fontsize=24)
+title = "Daily high temperatures - 2018"
+plt.title(title, fontsize=24)
 plt.xlabel('', fontsize=16)
 fig.autofmt_xdate()
 plt.ylabel('Temepratur (F)', fontsize=16)
 plt.tick_params(axis='both', which='major', labelsize=16)
 
+plt.savefig(f"{title}.png", bbox_inches='tight')
 plt.show()
