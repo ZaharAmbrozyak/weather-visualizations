@@ -1,5 +1,4 @@
 from csv import reader
-from os import read
 import matplotlib.pyplot as plt
 from datetime import datetime
 
